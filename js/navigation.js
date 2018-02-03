@@ -1,8 +1,8 @@
 // add the select form drop down item
 $('#menu').append(
-  '<select id="s1"></select>'+
-  '<select id="s2"></select>'+
-  '<select id="s3"></select>'+
+//  '<select id="s1"></select>'+
+//  '<select id="s2"></select>'+
+//  '<select id="s3"></select>'+
   '<select id="s4"></select>'
 );
 
@@ -26,14 +26,19 @@ $('#menu select').on("change",function() {
     $option.text() +
     " del menu " +
     $select.attr("id") +
-      " y te lleva a " +
-$option.val()
-);
+    " y te lleva a " +
+    $option.val()
+  );
   location.href = $(this).val();
 });
 
 // indicate which navigation item we are currently looking at
-$('#menu a').click(function() {
+$('#menu a').on("click",function() {
+  var $anchor = $(this);
+  console.info(
+    "Habeis dado clic en la opción " +
+    $anchor.text()
+      );
   $('#menu li').removeClass("selected");
-  $(this).parent().addClass("selected");
+  $anchor.parent().addClass("selected");
 });
